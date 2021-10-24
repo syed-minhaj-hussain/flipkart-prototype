@@ -10,6 +10,14 @@ export const Wishlist = () => {
 
   return (
     <div className={wishlistStyle.container}>
+      {" "}
+      {wishlist?.length < 1 && (
+        <h1
+          style={{ fontWeight: "200", textAlign: "center", marginTop: "40vh" }}
+        >
+          Wishlist is empty!
+        </h1>
+      )}{" "}
       <div className={wishlistStyle.grid}>
         {wishlist?.map(({ image, name, id }) => (
           <div key={id} className={wishlistStyle.card}>
