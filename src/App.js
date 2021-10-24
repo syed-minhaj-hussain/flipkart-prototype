@@ -6,8 +6,9 @@ import { Cart } from "./components/cart/Cart";
 import { Wishlist } from "./components/wishlist/Wishlist";
 
 function App() {
-  const { state } = useCartConext();
-  console.log({ state });
+  const {
+    state: { cart, wishlist },
+  } = useCartConext();
   const [route, setRoute] = useState("products");
   return (
     <div className="App">
@@ -24,7 +25,19 @@ function App() {
           onClick={() => setRoute("cart")}
           className={`${route === "cart" && homeStyle.active} ${homeStyle.btn}`}
         >
-          Cart
+          Cart{" "}
+          <span
+            style={{
+              backgroundColor: "darkgray",
+              color: "#fff",
+              padding: "0.25rem",
+              borderRadius: "50%",
+              textAlign: "right",
+            }}
+          >
+            {" "}
+            {cart.length}
+          </span>
         </button>
         <button
           onClick={() => setRoute("wishlist")}
@@ -32,7 +45,19 @@ function App() {
             homeStyle.btn
           }`}
         >
-          Wishlist
+          Wishlist{" "}
+          <span
+            style={{
+              backgroundColor: "darkgray",
+              color: "#fff",
+              padding: "0.25rem",
+              borderRadius: "50%",
+              textAlign: "right",
+            }}
+          >
+            {" "}
+            {wishlist.length}
+          </span>
         </button>
       </div>
       {route === "products" && <ProductListing />}
