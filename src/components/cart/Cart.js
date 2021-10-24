@@ -13,9 +13,19 @@ export const Cart = () => {
   );
   return (
     <div className={cartStyle.container}>
-      <h1 style={{ textAlign: "center", fontWeight: "200", fontSize: "2rem" }}>
-        Total Price = <span style={{ fontWeight: "bold" }}> {getTotal}</span>
-      </h1>
+      {cart?.length < 1 ? (
+        <h1
+          style={{ fontWeight: "200", textAlign: "center", marginTop: "40vh" }}
+        >
+          Cart is empty!
+        </h1>
+      ) : (
+        <h1
+          style={{ textAlign: "center", fontWeight: "200", fontSize: "2rem" }}
+        >
+          Total Price = <span style={{ fontWeight: "bold" }}> {getTotal}</span>
+        </h1>
+      )}
       <div className={cartStyle.grid}>
         {cart.map(({ image, name, quantity, id, price }) => (
           <div key={id} className={cartStyle.card}>
