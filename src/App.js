@@ -4,10 +4,11 @@ import { ProductListing } from "./components/product-listing/ProductListing";
 import { useCartConext } from "./context/CartContext";
 import { Cart } from "./components/cart/Cart";
 import { Wishlist } from "./components/wishlist/Wishlist";
+import { SaveForLater } from "./components/cart/SaveForLater";
 
 function App() {
   const {
-    state: { cart, wishlist },
+    state: { cart, wishlist, saveLater },
   } = useCartConext();
   const [route, setRoute] = useState("products");
   return (
@@ -40,6 +41,26 @@ function App() {
           </span>
         </button>
         <button
+          onClick={() => setRoute("saveLater")}
+          className={`${route === "saveLater" && homeStyle.active} ${
+            homeStyle.btn
+          }`}
+        >
+          Save Later{" "}
+          <span
+            style={{
+              backgroundColor: "darkgray",
+              color: "#fff",
+              padding: "0.25rem",
+              borderRadius: "50%",
+              textAlign: "right",
+            }}
+          >
+            {" "}
+            {saveLater.length}
+          </span>
+        </button>
+        <button
           onClick={() => setRoute("wishlist")}
           className={`${route === "wishlist" && homeStyle.active} ${
             homeStyle.btn
@@ -63,6 +84,7 @@ function App() {
       {route === "products" && <ProductListing />}
       {route === "cart" && <Cart />}
       {route === "wishlist" && <Wishlist />}
+      {route === "saveLater" && <SaveForLater />}
     </div>
   );
 }

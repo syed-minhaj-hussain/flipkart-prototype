@@ -24,11 +24,10 @@
 .cardBody {
   flex-basis: 45%;
   padding: 0.5rem;
-  margin-top: 1rem;
 }
 .cardBody h1 {
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 .increment {
   background-color: #fff;
@@ -69,6 +68,23 @@
   background-color: #fff;
   color: #000;
   cursor: pointer;
+}
+.total {
+  width: 400px;
+  border: 0.2rem solid #ccc;
+  margin-left: 33%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+.total div {
+  font-size: 1.7rem;
+  border-bottom: 1px solid #ccc;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 
 @media (max-width: 480px) {

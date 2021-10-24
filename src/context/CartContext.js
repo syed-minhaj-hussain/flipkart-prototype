@@ -43,6 +43,27 @@ export const CartProvider = ({ children }) => {
               : product
           ),
         };
+      case "ADD-TO-SAVE-FOR-LATER":
+        return {
+          ...state,
+          cart: state.cart?.filter((item) => item.id !== action.payload.id),
+          saveLater: [...state.saveLater, action.payload],
+        };
+      case "REMOVE-FROM-SAVE-FOR-LATER":
+        return {
+          ...state,
+          saveLater: state.saveLater?.filter(
+            (item) => item.id !== action.payload
+          ),
+        };
+      case "MOVE-FROM-SAVE-FOR-LATER-TO-CART":
+        return {
+          ...state,
+          saveLater: state.saveLater?.filter(
+            (item) => item.id !== action.payload.id
+          ),
+          cart: [...state.cart, action.payload],
+        };
       default:
         break;
     }
@@ -50,6 +71,7 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, {
     cart: JSON.parse(localStorage.getItem("cart")) || [],
     wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
+    saveLater: JSON.parse(localStorage.getItem("saveLater")) || [],
     products,
   });
 
@@ -59,6 +81,9 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
   }, [state.wishlist]);
+  useEffect(() => {
+    localStorage.setItem("saveLater", JSON.stringify(state.saveLater));
+  }, [state.saveLater]);
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}

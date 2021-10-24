@@ -4,30 +4,21 @@ import cartStyle from "./cart.module.css";
 
 export const Cart = () => {
   const {
-    state: { cart },
+    state: { cart, products },
     dispatch,
   } = useCartConext();
   const getTotal = cart?.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  const getTotalDiscount = cart.reduce(
+    (acc, item) => acc + item.discount * item.quantity,
+    0
+  );
   return (
     <div className={cartStyle.container}>
-      {cart?.length < 1 ? (
-        <h1
-          style={{ fontWeight: "200", textAlign: "center", marginTop: "40vh" }}
-        >
-          Cart is empty!
-        </h1>
-      ) : (
-        <h1
-          style={{ textAlign: "center", fontWeight: "200", fontSize: "2rem" }}
-        >
-          Total Price = <span style={{ fontWeight: "bold" }}> {getTotal}</span>
-        </h1>
-      )}
       <div className={cartStyle.grid}>
-        {cart.map(({ image, name, quantity, id, price }) => (
+        {cart.map(({ image, name, quantity, id, discount }) => (
           <div key={id} className={cartStyle.card}>
             <div className={cartStyle.cardHead}>
               <img src={image} alt="" />
@@ -50,7 +41,7 @@ export const Cart = () => {
                 </button>
               </div>
               <p style={{ marginLeft: "1rem", marginTop: "0.25rem" }}>
-                ₹ {price * quantity}
+                ₹ {discount * quantity}
               </p>
               <button
                 className={cartStyle.btn}
@@ -60,10 +51,77 @@ export const Cart = () => {
               >
                 Remove from cart
               </button>
+              <button
+                className={cartStyle.btn}
+                onClick={() =>
+                  dispatch({
+                    type: "ADD-TO-SAVE-FOR-LATER",
+                    payload: products.products.find((item) => item.id === id),
+                  })
+                }
+              >
+                Save For Later
+              </button>
             </div>
           </div>
         ))}
       </div>
+      {cart?.length < 1 ? (
+        <h1
+          style={{ fontWeight: "200", textAlign: "center", marginTop: "40vh" }}
+        >
+          Cart is empty!
+        </h1>
+      ) : (
+        <>
+          <h1
+            style={{
+              fontWeight: "200",
+              textAlign: "center",
+              marginTop: "0.2rem",
+            }}
+          >
+            Checkout
+          </h1>
+          <div
+            style={{
+              textAlign: "center",
+              fontWeight: "200",
+              fontSize: "2rem",
+            }}
+            className={cartStyle.total}
+          >
+            <div>
+              <span className={cartStyle.left}>
+                Price of ({cart.length} Item)
+              </span>{" "}
+              <span className={cartStyle.right}>{getTotal}</span>
+            </div>
+            <br />
+            <div>
+              <span className={cartStyle.left}> Discount :</span>{" "}
+              <span className={cartStyle.right} style={{ color: "green" }}>
+                - {getTotalDiscount}
+              </span>{" "}
+            </div>
+            <br />
+            <div>
+              <span className={cartStyle.left}> Delivery Charges : </span>
+              <span className={cartStyle.right} style={{ color: "green" }}>
+                Free
+              </span>{" "}
+            </div>
+            <br />
+            <div>
+              <span className={cartStyle.left}> Total Price =</span>{" "}
+              <span style={{ fontWeight: "600" }} className={cartStyle.right}>
+                ₹ {getTotal - getTotalDiscount}
+              </span>
+            </div>
+            <br />
+          </div>
+        </>
+      )}
     </div>
   );
 };
