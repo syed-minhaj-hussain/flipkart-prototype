@@ -1,0 +1,68 @@
+{
+  "assignment": "Flipkart Prototype",
+  "products": [
+    {
+      "id": 1,
+      "name": "Solid Men Round Neck Grey T-Shirt",
+      "price": 799,
+      "discount": 250,
+      "brand": "PETER ENGLAND",
+      "quantity": 1,
+      "image": "https://rukminim1.flixcart.com/image/800/960/krdtlzk0/t-shirt/j/n/y/3xl-pjkcprxfe58146-peter-england-original-imag56y4gqefdpdb.jpeg?q=50"
+    },
+    {
+      "id": 2,
+      "name": "Men Slim Fit Checkered Casual Shirt",
+      "price": 1999,
+      "discount": 580,
+      "brand": "Surhi ",
+      "image": "https://rukminim1.flixcart.com/image/800/960/kc0u7bk0/shirt/k/a/a/m-pk19sh09g-surhi-original-imaft8vgvhmhbhsy.jpeg?q=50",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Full Sleeve Solid Men Quilted Jacket",
+      "price": 2525,
+      "discount": 549,
+      "brand": "Breil By Fort Collins",
+      "quantity": 1,
+      "image": "https://rukminim1.flixcart.com/image/800/960/kflftzk0/jacket/f/c/z/m-14731-fk-breil-by-fort-collins-original-imafwyyegevv9sdp.jpeg?q=50"
+    },
+    {
+      "id": 4,
+      "name": "Solid Men Mandarin Collar Green T-Shirt",
+      "price": 1299,
+      "discount": 849,
+      "brand": "Seven Rocks",
+      "quantity": 1,
+      "image": "https://rukminim1.flixcart.com/image/800/960/kf75fgw0-0/t-shirt/f/6/j/xxl-t325-pwgh-seven-rocks-original-imafvpbgf6nchmfj.jpeg?q=50"
+    },
+    {
+      "id": 5,
+      "name": "Solid Men Quilted CollarT-Shirt",
+      "price": 1299,
+      "discount": 983,
+      "brand": "Seven Rocks",
+      "quantity": 1,
+      "image": "https://rukminim1.flixcart.com/image/800/960/k69ncsw0/t-shirt/6/j/c/3xl-t15-seven-rocks-original-imafzrhthhpr4hne.jpeg?q=50"
+    },
+    {
+      "id": 6,
+      "name": "Men Round Neck Blue, Yellow T-Shirt",
+      "price": 999,
+      "discount": 569,
+      "brand": "Try This",
+      "quantity": 1,
+      "image": "https://rukminim1.flixcart.com/image/800/960/ke4kjgw0-0/t-shirt/r/w/x/s-101-try-this-original-imafuvgbqkvhtmwp.jpeg?q=50"
+    },
+    {
+      "id": 7,
+      "name": "Full Sleeve Solid Men Quilted Jacket",
+      "price": 2475,
+      "discount": 1247,
+      "brand": "Breil By Fort Collins",
+      "quantity": 1,
+      "image": "https://rukminim1.flixcart.com/image/800/960/k1s6ljk0/jacket/4/b/3/m-9905fk-breil-by-fort-collins-original-imafh8ub2mgg5zbz.jpeg?q=50"
+    }
+  ]
+}

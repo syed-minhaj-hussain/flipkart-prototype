@@ -1,0 +1,72 @@
+.container {
+  max-width: 1100px;
+  margin: 1rem auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+.card {
+  /* width: 600px; */
+  height: 250px;
+  display: flex;
+  border: 0.1rem solid black;
+  padding: 0.2rem;
+}
+.cardHead {
+  flex-basis: 55%;
+}
+.cardHead > img {
+  width: 100%;
+  height: 100%;
+}
+.cardBody {
+  flex-basis: 45%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.cardBody h1 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.increment {
+  background-color: #fff;
+  color: #000;
+  border: 0.1rem solid #000;
+  padding: 0.2rem 0.4rem;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+.increment:hover {
+  background-color: #000;
+  color: #fff;
+}
+.decrement:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.decrement {
+  background-color: #fff;
+  color: #000;
+  border: 0.1rem solid #000;
+  padding: 0.2rem 0.4rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.btn {
+  width: 100%;
+  background-color: #000;
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+  border: 0.1rem solid black;
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
