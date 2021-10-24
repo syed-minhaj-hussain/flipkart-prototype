@@ -34,7 +34,7 @@ export const Cart = () => {
             </div>
             <div className={cartStyle.cardBody}>
               <h1>{name}</h1>
-              <div style={{ marginTop: "28%" }}>
+              <div style={{ marginTop: "28%" }} className={cartStyle.controls}>
                 <button
                   className={cartStyle.increment}
                   onClick={() => dispatch({ type: "INCREMENT", payload: id })}
