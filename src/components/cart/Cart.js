@@ -15,6 +15,21 @@ export const Cart = () => {
     (acc, item) => acc + item.discount * item.quantity,
     0
   );
+
+  const calculate = cart.reduce(
+    (acc, item) =>
+      Math.floor(
+        acc +
+          (item.price -
+            (item.price *
+              Math.abs(((item.price - item.discount) / item.price) * 100)) /
+              100) *
+            item.quantity
+      ),
+    0
+  );
+
+  // console.log(finalPrice);
   return (
     <div className={cartStyle.container}>
       <div className={cartStyle.grid}>
@@ -101,7 +116,7 @@ export const Cart = () => {
             <div>
               <span className={cartStyle.left}> Discount :</span>{" "}
               <span className={cartStyle.right} style={{ color: "green" }}>
-                - {getTotalDiscount}
+                - {getTotal - getTotalDiscount}
               </span>{" "}
             </div>
             <br />
@@ -115,7 +130,7 @@ export const Cart = () => {
             <div>
               <span className={cartStyle.left}> Total Price =</span>{" "}
               <span style={{ fontWeight: "600" }} className={cartStyle.right}>
-                ₹ {getTotal - getTotalDiscount}
+                ₹ {calculate}
               </span>
             </div>
             <br />

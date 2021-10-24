@@ -8,7 +8,6 @@ export const ProductListing = () => {
     state: { products, cart, wishlist },
     dispatch,
   } = useCartConext();
-  console.log(products);
   return (
     <div className={productStyle.container}>
       <div className={productStyle.grid}>
@@ -64,7 +63,8 @@ export const ProductListing = () => {
                     ₹ {price}
                   </span>
                   <span className={productStyle.discount}>
-                    {Math.floor(((price - discount) / price) * 100)} % off
+                    {Math.floor(Math.abs(((price - discount) / price) * 100))} %
+                    off
                   </span>
                 </p>
                 <button
